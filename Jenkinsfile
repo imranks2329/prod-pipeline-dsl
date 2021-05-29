@@ -8,7 +8,7 @@
                 post {
                     success {
                         echo "Now Archiving the Artifacts...."
-                        archiveArtifacts artifacts: '**/webappcook.war'
+                        archiveArtifacts artifacts: '**/*.war'
                     }
                 }
             }
