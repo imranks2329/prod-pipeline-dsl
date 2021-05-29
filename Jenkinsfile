@@ -8,13 +8,13 @@
                 post {
                     success {
                         echo "Now Archiving the Artifacts...."
-                        archiveArtifacts artifacts: '**/*.war'
+                        archiveArtifacts artifacts: '**/webappcook.war'
                     }
                 }
             }
             stage('Deploy in Staging Environment'){
                 steps{
-                    build job: 'deploy-to-test-env'
+                    build job: 'pipeline-tomcat-test-dsl'
      
                 }
                 
@@ -24,7 +24,7 @@
                     timeout(time:5, unit:'DAYS'){
                         input message:'Approve PRODUCTION Deployment?'
                     }
-                    build job: 'deploy-to-prod-env'
+                    build job: 'pipeline-tomcat-pro-dsl'
                 }
             }
         }
