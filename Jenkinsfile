@@ -13,7 +13,8 @@
             }
             
         }
-        stage('Deploy in Staging Environment'){
+
+            stage('Deploy in Staging Environment'){
                 steps{
                     build job: 'Deploy_Application_Staging_Env'
      
@@ -21,4 +22,5 @@
                 
         }
     }
-} 
+}   
+                
