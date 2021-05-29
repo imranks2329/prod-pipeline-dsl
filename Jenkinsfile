@@ -14,7 +14,7 @@ pipeline {
             }
             stage('Deploy in Staging Environment'){
                 steps{
-                    build job: 'deploy-to-test-env'
+                    build job: 'pipeline-tomcat-test-dsl'
      
                 }
                 
@@ -24,7 +24,7 @@ pipeline {
                     timeout(time:5, unit:'DAYS'){
                         input message:'Approve PRODUCTION Deployment?'
                     }
-                    build job: 'deploy-to-prod-env'
+                    build job: 'pipeline-tomcat-pro-dsl'
                 }
             }
         }
